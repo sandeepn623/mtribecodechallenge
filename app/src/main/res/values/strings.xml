@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">CarFeedApp</string>
+    <string name="loading_car_info">Loading Car Information...</string>
+    <string name="cd_car_info_list">Car Information list</string>
+    <string name="google_maps_key">AIzaSyBQL09qz5Oh3VlKLgZR7Gv-nbBGA301vfs</string>
+
+    <!--    Permissions    -->
+    <string name="permission_rationale_location">Access to the location service is required to demonstrate the \'my location\' feature, which shows your current location on the map.</string>
+    <string name="location_permission_denied">This sample requires location permission to enable the \'my location\' layer. Please try again and grant access to use the location.\nIf the permission has been permanently denied, it can be enabled from the System Settings &gt; Apps &gt; \'Google Maps API Demos\'.</string>
+    <string name="permission_required_toast">Location permission is required for this demo.</string>
+
+    <!-- list item -->
+    <string name="name">Name:</string>
+    <string name="address">Address:</string>
+    <string name="engine_type">Engine Type:</string>
+    <string name="interior">Interior:</string>
+    <string name="exterior">Exterior:</string>
+
+    <!--other UI strings -->
+    <string name="networkError">Please check if your mobile is connneted to a network or wifi and try again!</string>
+    <string name="requesterror">Unable to process the request. Please try after sometime!</string>
+    <string name="ok">OK</string>
+    <string name="refershdata">refresh</string>
+    <string name="splash_loading_text">Loading Information... Please wait...</string>
+
+</resources>

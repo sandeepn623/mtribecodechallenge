@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="cardinformation"
+            type="com.mtribe.carfeedapp.model.CarInformation"/>
+        <variable name="callback"
+            type="com.mtribe.carfeedapp.ui.CarInfoItemClickCallback"/>
+    </data>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/card_item_min_height"
+        android:onClick="@{() ->  callback.onClick(cardinformation)}"
+        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/item_horizontal_margin"
+        android:layout_marginEnd="@dimen/item_horizontal_margin"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_marginStart="@dimen/item_horizontal_margin"
+            android:layout_marginEnd="@dimen/item_horizontal_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/name_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name"/>
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/item_margin_end"
+                android:layout_toRightOf="@id/name_label"
+                android:text="@{cardinformation.name}"/>
+
+            <TextView
+                android:id="@+id/address_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/name"
+                android:text="@string/address"/>
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/address_label"
+                android:layout_marginRight="@dimen/item_margin_end"
+                android:layout_below="@id/name"
+                android:text="@{cardinformation.address}"/>
+            <TextView
+                android:id="@+id/engineType_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/address"
+                android:text="@string/engine_type"/>
+            <TextView
+                android:id="@+id/engineType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/engineType_label"
+                android:layout_marginRight="@dimen/item_margin_end"
+                android:layout_below="@id/address"
+                android:text="@{cardinformation.engineType}"/>
+            <TextView
+                android:id="@+id/interior_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/engineType"
+                android:text="@{cardinformation.interior}"/>
+            <TextView
+                android:id="@+id/interior"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/interior_label"
+                android:layout_marginRight="@dimen/item_margin_end"
+                android:layout_below="@id/engineType"
+                android:text="@string/interior"/>
+            <TextView
+                android:id="@+id/exterior_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/interior"
+                android:text="@{cardinformation.exterior}"/>
+            <TextView
+                android:id="@+id/exterior"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/exterior_label"
+                android:layout_marginRight="@dimen/item_margin_end"
+                android:layout_below="@id/interior"
+                android:text="@string/exterior"/>
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+</layout>

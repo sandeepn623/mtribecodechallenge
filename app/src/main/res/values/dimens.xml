@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="item_horizontal_margin">8dp</dimen>
+    <dimen name="card_item_min_height">100dp</dimen>
+    <dimen name="item_margin_end">5dp</dimen>
+    <dimen name="fab_elevetion">6dp</dimen>
+    <dimen name="fab_pressedTranslationZ">12dp</dimen>
+</resources>
