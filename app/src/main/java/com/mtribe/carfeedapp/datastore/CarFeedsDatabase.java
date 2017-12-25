@@ -10,11 +10,8 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.mtribe.carfeedapp.BackgroundJobExecutor;
 import com.mtribe.carfeedapp.datastore.dao.CarFeedDao;
 import com.mtribe.carfeedapp.datastore.entity.CarInformationEntity;
-import com.mtribe.carfeedapp.http.request.GetCarFeedRequest;
-import com.mtribe.carfeedapp.http.response.model.CarFeeds;
 
 import java.util.List;
 
@@ -57,29 +54,9 @@ public abstract class CarFeedsDatabase extends RoomDatabase {
                     @Override
                     public void onCreate(@NonNull SupportSQLiteDatabase db) {
                         super.onCreate(db);
-                        /*bgExecutor.networkIO().execute(new Runnable() {
-                            @Override
-                            public void run() {
-                                Log.d(TAG, "buildDatabase called.");
-                                GetCarFeedRequest request = new GetCarFeedRequest();
-                                CarFeeds carFeeds = request.sendRequest(URL);
-                                List<CarInformationEntity> carInformationEntities = DataEntityMapper.mapResponseWithFields(carFeeds);
-                                CarFeedsDatabase carFeedsDatabase = CarFeedsDatabase.getInstance(context, bgExecutor);
-                                insertData(carFeedsDatabase, carInformationEntities);
-
-                                carFeedsDatabase.setDatabaseCreated();
-                            }
-                        });*/
                         sInstance.setDatabaseCreated();
                     }
                 }).build();
-    }
-
-    /**
-     * Check whether the database already exists and expose it via {@link #getDatabaseCreated()}
-     */
-    private void updateDatabaseCreated(Context context) {
-        setDatabaseCreated();
     }
 
     private void setDatabaseCreated(){
@@ -97,13 +74,5 @@ public abstract class CarFeedsDatabase extends RoomDatabase {
 
     public LiveData<Boolean> getDatabaseCreated() {
         return mIsDatabaseCreated;
-    }
-
-    public boolean checkAndUpdateIfDatabaseExists(Context context) {
-        boolean isDBExists = context.getDatabasePath(DATABASE_NAME).exists();
-        if (context.getDatabasePath(DATABASE_NAME).exists()) {
-            updateDatabaseCreated(context);
-        }
-        return isDBExists;
     }
 }

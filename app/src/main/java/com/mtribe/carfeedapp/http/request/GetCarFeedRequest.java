@@ -6,7 +6,7 @@ package com.mtribe.carfeedapp.http.request;
 import android.util.Log;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mtribe.carfeedapp.http.response.model.CarFeeds;
+import com.mtribe.carfeedapp.http.response.CarFeeds;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;

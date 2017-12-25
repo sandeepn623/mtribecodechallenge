@@ -5,13 +5,10 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.util.SparseArray;
 
 import com.mtribe.carfeedapp.R;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends BaseActivity{
     private boolean mLocationPermissionGranted;
 
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;

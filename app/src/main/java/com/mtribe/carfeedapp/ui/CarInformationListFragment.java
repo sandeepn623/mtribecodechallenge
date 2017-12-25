@@ -20,7 +20,6 @@ import android.view.ViewGroup;
 
 import com.mtribe.carfeedapp.R;
 import com.mtribe.carfeedapp.databinding.CarinfoListFragmentBinding;
-import com.mtribe.carfeedapp.datastore.DataStoreManager;
 import com.mtribe.carfeedapp.datastore.entity.CarInformationEntity;
 import com.mtribe.carfeedapp.model.CarInformation;
 import com.mtribe.carfeedapp.utils.NetworkUtils;
@@ -114,7 +113,7 @@ public class CarInformationListFragment extends Fragment {
         switch (item.getItemId()) {
             case R.id.action_refresh:
                 if (NetworkUtils.isNetworkAvailable(getActivity().getApplicationContext())) {
-                    DataStoreManager.getInstance().getCarFeeds(getActivity().getApplicationContext());
+
                 } else {
                     showAlert(getResources().getString(R.string.networkError));
                 }

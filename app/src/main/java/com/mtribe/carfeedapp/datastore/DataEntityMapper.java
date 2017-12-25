@@ -1,8 +1,8 @@
 package com.mtribe.carfeedapp.datastore;
 
 import com.mtribe.carfeedapp.datastore.entity.CarInformationEntity;
-import com.mtribe.carfeedapp.http.response.model.CarFeeds;
-import com.mtribe.carfeedapp.http.response.model.Placemark;
+import com.mtribe.carfeedapp.http.response.CarFeeds;
+import com.mtribe.carfeedapp.http.response.Placemark;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,8 +24,8 @@ public class DataEntityMapper {
             carInformationEntity.setFuel(placemark.getFuel());
             carInformationEntity.setName(placemark.getName());
             carInformationEntity.setVin(placemark.getVin());
-            carInformationEntity.setLongitude(placemark.getCoordinates().get(0).doubleValue());
-            carInformationEntity.setLatitude(placemark.getCoordinates().get(1).doubleValue());
+            carInformationEntity.setLongitude(placemark.getCoordinates().get(0));
+            carInformationEntity.setLatitude(placemark.getCoordinates().get(1));
             carInformationEntityList.add(carInformationEntity);
         }
         return carInformationEntityList;

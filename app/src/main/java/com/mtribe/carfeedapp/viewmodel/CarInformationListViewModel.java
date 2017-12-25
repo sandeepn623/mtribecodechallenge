@@ -29,7 +29,6 @@ public class CarInformationListViewModel extends AndroidViewModel {
         mObservableCarInfoEntities.setValue(null);
 
         LiveData<List<CarInformationEntity>> carInformationEntities = ((CarFeedApplication) application).getRepository().getCarInformationEntities();
-
         // observe the changes of the products from the database and forward them
         mObservableCarInfoEntities.addSource(carInformationEntities, new Observer<List<CarInformationEntity>>() {
             @Override
@@ -42,6 +41,5 @@ public class CarInformationListViewModel extends AndroidViewModel {
     /**
      * Expose the LiveData Products query so the UI can observe it.
      */
-    public LiveData<List<CarInformationEntity>> getCarInformationEntities() { return mObservableCarInfoEntities;
-    }
+    public LiveData<List<CarInformationEntity>> getCarInformationEntities() { return mObservableCarInfoEntities; }
 }

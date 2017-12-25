@@ -210,6 +210,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleM
                                 marker = mMap.addMarker(new MarkerOptions().position(currentLocation).title("Current Location")
                                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
                                 marker.setTag(CURRENT_LOCATION_MARKER_INDEX);
+                                mMarkerArray.delete(Integer.parseInt(marker.getTag().toString()));
                                 mMarkerArray.put(Integer.parseInt(marker.getTag().toString()), marker);
                                 // ENABLE after Testing only for testing purposes
                                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, DEFAULT_ZOOM));
@@ -233,6 +234,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleM
         Marker marker = mMap.addMarker(new MarkerOptions().position(mDefaultLocation).title("Default Location")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
         marker.setTag(CURRENT_LOCATION_MARKER_INDEX);
+        mMarkerArray.delete(Integer.parseInt(marker.getTag().toString()));
         mMarkerArray.put(Integer.parseInt(marker.getTag().toString()), marker);
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mDefaultLocation, DEFAULT_ZOOM));
         mMap.getUiSettings().setMyLocationButtonEnabled(false);
@@ -295,5 +297,12 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleM
         if(mLastClickedMarker != null) {
             onMarkerClick(mLastClickedMarker);
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mMap.clear();
+        mMarkerArray.clear();
     }
 }

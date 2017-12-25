@@ -4,7 +4,7 @@ import android.app.Application;
 import android.util.Log;
 
 import com.mtribe.carfeedapp.datastore.CarFeedsDatabase;
-import com.mtribe.carfeedapp.datastore.DataStoreManager;
+import com.mtribe.carfeedapp.repository.DataRepository;
 
 /**
  * Created by Sandeepn on 02-12-2017.
@@ -24,14 +24,12 @@ public class CarFeedApplication extends Application {
 
     public CarFeedsDatabase getDatabase() {
         Log.d(TAG, "getDatabase called");
-        CarFeedsDatabase carFeedsDatabase = DataStoreManager.getInstance().initializeDatabase(this, mBgExecutors);
-        carFeedsDatabase.checkAndUpdateIfDatabaseExists(this);
-        return carFeedsDatabase;
+        return CarFeedsDatabase.getInstance(this);
     }
 
     public DataRepository getRepository() {
         Log.d(TAG, "getRepository called");
-        return DataRepository.getInstance(getDatabase());
+        return DataRepository.getInstance(getDatabase(), mBgExecutors);
     }
 
 
